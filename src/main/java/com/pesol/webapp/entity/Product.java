@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "product")
@@ -16,15 +19,20 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@NotBlank(message = "is required")
 	@Column(name = "name")
 	private String name;
 	
 	@Column(name = "description")
 	private String description;
 	
+	@NotNull(message = "is required")
+	@Min(value = 1, message = "must equal/greater than 1")
 	@Column(name = "price")
 	private Double price;
 	
+	@NotNull(message = "is required")
+	@Min(value = 1, message = "must equal/greater than 1")
 	@Column(name = "quantity")
 	private Integer quantity;
 	
@@ -78,4 +86,12 @@ public class Product {
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price
+				+ ", quantity=" + quantity + "]";
+	}
+	
+	
 }

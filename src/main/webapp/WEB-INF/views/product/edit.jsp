@@ -15,6 +15,12 @@
 
 <link rel="stylesheet" type="text/css"
 	href="${theContextPath}/resources/css/bootstrap.min.css">
+	
+	<style type="text/css">
+		.error {
+			color: red;
+		}
+	</style>
 
 </head>
 <body>
@@ -31,6 +37,7 @@
 			<div>
 				<label for="name">Name: </label>
 				<form:input cssClass="form-control" id="name" path="name"/>
+				<form:errors path="name" cssClass="error"/>
 			</div>
 			
 			<div>
@@ -41,11 +48,13 @@
 			<div>
 				<label for="price">Price: </label>
 				<form:input type="number" min="1" cssClass="form-control" id="price" path="price"/>
+				<form:errors path="price" cssClass="error"/>
 			</div>
 			
 			<div class="mb-2">
 				<label for="quantity">Quantity: </label>
 				<form:input type="number" min="1" cssClass="form-control" id="quantity" path="quantity"/>
+				<form:errors path="quantity" cssClass="error"/>
 			</div>
 		
 			<div>
